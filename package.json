@@ -1,0 +1,23 @@
+{
+  "name": "byte-matcher",
+  "version": "0.0.0",
+  "description": "Match bytes in a buffer returning and array of objects containing the start and end indices of the matches",
+  "main": "byte-matcher.js",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/sonewman/byte-matcher.git"
+	},
+	"scripts": {
+    "test": "./test.js"
+  },
+  "keywords": [
+    "byte",
+    "match",
+    "buffer"
+  ],
+  "author": "Sam Newman",
+  "license": "ISC",
+  "devDependencies": {
+    "tap": "^0.4.8"
+  }
+}
