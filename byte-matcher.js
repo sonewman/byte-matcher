@@ -12,7 +12,7 @@ function byteMatcher(buffer, target, midMatchIndex, firstOnly) {
     , matchCursor = midMatchIndex || 0
     , match = null
 
-	firstOnly = !!firstOnly
+  firstOnly = !!firstOnly
 
   for (bufferCursor = 0; bufferCursor < bufferLength; bufferCursor ++) {
 
@@ -23,42 +23,42 @@ function byteMatcher(buffer, target, midMatchIndex, firstOnly) {
       matchCursor ++
 
       if (matchCursor === matchLength) {
-				match = {}
-				if ('number' === typeof midMatchIndex) {
-					startIndex -= midMatchIndex
-					midMatchIndex = undefined
-				} else {
-					match.start = startIndex
-				}
+        match = {}
+        if ('number' === typeof midMatchIndex) {
+          startIndex -= midMatchIndex
+          midMatchIndex = undefined
+        } else {
+          match.start = startIndex
+        }
 
         match.end = startIndex + matchLength
-				if (firstOnly) return match
+        if (firstOnly) return match
 
         indexArray.push(match)
 
         startIndex = -1
         matchCursor = 0
-				match = null
+        match = null
       }
 
     } else if (matchCursor !== 0) {
       startIndex = -1
       matchCursor = 0
-			match = null
+      match = null
     }
   }
 
-	// add boundary match
-	if ('number' === typeof midMatchIndex) {
-		match = { cursor: matchCursor }
-		if (firstOnly) return match
-		indexArray.push(match)
-	} else if (startIndex !== -1) {
-		match = { start: startIndex, cursor: matchCursor }
+  // add boundary match
+  if ('number' === typeof midMatchIndex) {
+    match = { cursor: matchCursor }
     if (firstOnly) return match
-		indexArray.push(match)
-	}
-	// add boundary match
-	return indexArray
+    indexArray.push(match)
+  } else if (startIndex !== -1) {
+    match = { start: startIndex, cursor: matchCursor }
+    if (firstOnly) return match
+    indexArray.push(match)
+  }
+  // add boundary match
+  return indexArray
 }
 
