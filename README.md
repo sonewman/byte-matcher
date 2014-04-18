@@ -18,7 +18,13 @@ var byteMatcher = require('byte-matcher')
 var matches = byteMatcher(buffertoSearch, bufferToMatch [, startingBufferIndex])
 ```
 
-These attributes will **only** be present in the object if they have been established.
+The following attributes will **only** be present in the object if they have been established.
+
+```javascript
+matches[0].start {number|undefined}
+matches[0].end {number|undefined}
+matches[0].cursor {number|undefined}
+```
 
 **At this point I must point out the end value is actually the next index after the last index of that match - there is a good reason for this**
 Say that you would like to slice a buffer:
